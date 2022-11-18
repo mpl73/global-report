@@ -1,0 +1,248 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Variáveis Estáticas {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Usina São José da Estiva</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="{% url 'home' %}">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'variaveis_estaticas' %}">Variáveis Estáticas</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">Variáveis Estáticas</h4>
+								<button class="btn btn-icon btn-success btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<!-- Modal -->
+							<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content bg-dark2">
+										<div class="modal-header no-bd">
+											<h2 class="modal-title">
+												<span class="fw-mediumbold">
+												Nova</span> 
+												<span class="fw-light">
+													Tag Analógica
+												</span>
+											</h2>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<!-- Tamanho Menor -->
+											<form>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group form-group-default">
+															<label>Tagname</label>
+															<input id="tagname" type="text" class="form-control" placeholder="Insira a tag">
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group form-group-default">
+															<label>Descrição</label>
+															<input id="descricao" type="text" class="form-control" placeholder="Insira a descrição">
+														</div>
+													</div>
+													<div class="col-md-6 pr-0">
+														<div class="form-group form-group-default">
+															<label>Mínimo</label>
+															<input id="minimo" type="number" class="form-control" placeholder="Insira o mínimo">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group form-group-default">
+															<label>Máximo</label>
+															<input id="maximo" type="number" class="form-control" placeholder="Insira o máximo">
+														</div>
+													</div>
+													<div class="col-md-6 pr-0">
+														<div class="form-group form-group-default">
+															<label>Valor de Projeto</label>
+															<input id="valor" type="number" class="form-control" placeholder="Insira o valor de projeto">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group form-group-default">
+															<label>Unidade Engenharia</label>
+															<select class="form-control" id="unidade">
+																<option>K</option>
+																<option>°C</option>
+																<option>°F</option>
+																<option>°R</option>
+																<option>rad</option>
+																<option>°</option>
+																<option>'</option>
+																<option>''</option>
+																<option>gon</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group form-group-default">
+															<label>Driver de Conexão</label>
+															<select class="form-control" id="driver">
+																<option>Manual</option>
+																<option>Driver 1</option>
+																<option>Driver 2</option>
+																<option>Driver 3</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer no-bd">
+											<button type="button" id="criar" class="btn btn-success">Criar</button>
+											<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="table-responsive">
+								<table id="basic-datatables" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>Tagname</th>
+											<th>Descrição</th>
+											<th>Valor</th>
+											<th>Timestamp</th>
+											<th>Unidade</th>
+											<th>Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>s</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-info">
+													<i class="fas fa-pen"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-danger">
+													<i class="fas fa-times"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_EDR6_D</td>
+											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+											<td>96,7099</td>
+											<td>16/11/2022 -09:59</td>
+											<td>%</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-info">
+													<i class="fas fa-pen"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-danger">
+													<i class="fas fa-times"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>s</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-info">
+													<i class="fas fa-pen"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-danger">
+													<i class="fas fa-times"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_EDR6_D</td>
+											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+											<td>96,7099</td>
+											<td>16/11/2022 -09:59</td>
+											<td>%</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-info">
+													<i class="fas fa-pen"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-danger">
+													<i class="fas fa-times"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>s</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-info">
+													<i class="fas fa-pen"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-danger">
+													<i class="fas fa-times"></i>
+												</button>
+											</td>
+										</tr>				
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+				"pageLength": 5,
+			});
+
+
+			var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+			$('#criar').click(function() {
+				$('#addRowModal').modal('hide');
+
+			});
+		});
+	</script>
+
+{% endblock javascripts %}

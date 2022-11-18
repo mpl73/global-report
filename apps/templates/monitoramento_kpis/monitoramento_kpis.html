@@ -1,0 +1,184 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Monitoramento de KPI's {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Usina São José da Estiva</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="{% url 'home' %}">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'monitoramento_kpis' %}">Monitoramento de KPI's</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">Monitoramento de KPI's</h4>
+								<a href="{% url 'variaveis_virtuais' %}" class="ml-auto">
+									<button class="btn btn-icon btn-success btn-round">
+										<i class="fa fa-plus"></i>
+									</button>
+								</a>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="basic-datatables" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>Tagname</th>
+											<th>Descrição</th>
+											<th>Valor</th>
+											<th>Timestamp</th>
+											<th>Status</th>
+											<th>Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>
+												<div class="card card-success card-round" style="margin: 0;">
+													<div class="icon-big text-center">
+														Online
+													</div>
+												</div>
+											</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-chart-line"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-bell"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_EDR6_D</td>
+											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+											<td>96,7099</td>
+											<td>16/11/2022 -09:59</td>
+											<td>
+												<div class="card card-danger card-round" style="margin: 0;">
+													<div class="icon-big text-center">
+														Offline
+													</div>
+												</div>
+											</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-chart-line"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-bell"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>
+												<div class="card card-danger card-round" style="margin: 0;">
+													<div class="icon-big text-center">
+														Offline
+													</div>
+												</div>
+											</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-chart-line"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-bell"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_EDR6_D</td>
+											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+											<td>96,7099</td>
+											<td>16/11/2022 -09:59</td>
+											<td>
+												<div class="card card-success card-round" style="margin: 0;">
+													<div class="icon-big text-center">
+														Online
+													</div>
+												</div>
+											</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-chart-line"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-bell"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>SIG_SCT_D</td>
+											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+											<td>29352,00</td>
+											<td>11/9/2022, 11:00:03 AM</td>
+											<td>
+												<div class="card card-success card-round" style="margin: 0;">
+													<div class="icon-big text-center">
+														Online
+													</div>
+												</div>
+											</td>
+											<td style="text-align: center; width: 10%;">
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-chart-line"></i>
+												</button>
+												<button type="button" class="btn btn-icon btn-round btn-default">
+													<i class="fas fa-bell"></i>
+												</button>
+											</td>
+										</tr>								
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+				"pageLength": 5,
+			});
+		});
+	</script>
+
+{% endblock javascripts %}
