@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Tabela de Monitoramento {% endblock %} 
+{% block title %}{{ title }}{% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,7 +21,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'tabela_monitoramento' %}">Tabela de Monitoramento</a>
+						<a href="{% url 'tabela_monitoramento' %}">{{ title }}</a>
 					</li>
 				</ul>
 			</div>
@@ -29,7 +29,7 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">Tabela de Monitoramento</h4>
+							<h4 class="card-title">{{ title }}</h4>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -45,426 +45,58 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
+										{% for item in list %}
+											<tr>
+												<td>SIG_SCT_D</td>
+												<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+												<td>29352,00 s</td>
+												<td>11/9/2022, 11:00:03 AM</td>
+												<td>
+													<div class="card card-success card-round" style="margin: 0;">
+														<div class="icon-big text-center">
+															Online
+														</div>
 													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_CNMOI_D</td>
-											<td>Cana Moida - Total Dia</td>
-											<td>18280,86 T</td>
-											<td>12/9/2022, 15:00:30 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<a href="{% url 'grafico_tendencias' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-chart-line"></i>
+														</button>
+													</a>
+													<a href="{% url 'historico_alarmes' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-bell"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+											<tr>
+												<td>SIG_CNMOI_D</td>
+												<td>Cana Moida - Total Dia</td>
+												<td>18280,86 T</td>
+												<td>12/9/2022, 15:00:30 AM</td>
+												<td>
+													<div class="card card-danger card-round" style="margin: 0;">
+														<div class="icon-big text-center">
+															Offline
+														</div>
 													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_CNMOI_D</td>
-											<td>Cana Moida - Total Dia</td>
-											<td>18280,86 T</td>
-											<td>12/9/2022, 15:00:30 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_CNMOI_D</td>
-											<td>Cana Moida - Total Dia</td>
-											<td>18280,86 T</td>
-											<td>12/9/2022, 15:00:30 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_CNMOI_D</td>
-											<td>Cana Moida - Total Dia</td>
-											<td>18280,86 T</td>
-											<td>12/9/2022, 15:00:30 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00 s</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<a href="{% url 'grafico_tendencias' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-chart-line"></i>
+														</button>
+													</a>
+													<a href="{% url 'historico_alarmes' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-bell"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+										{% endfor %}
 									</tbody>
 								</table>
 							</div>

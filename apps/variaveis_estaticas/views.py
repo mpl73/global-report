@@ -29,3 +29,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class VariaveisEstaticasView(LoginRequiredMixin, TemplateView):
     template_name = 'variaveis_estaticas/variaveis_estaticas.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(VariaveisEstaticasView, self).get_context_data(**kwargs)
+        context['title'] = "Variáveis Estáticas"
+        context['list'] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        return context

@@ -29,3 +29,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class TabelaMonitoramentoView(LoginRequiredMixin, TemplateView):
     template_name = 'tabela_monitoramento/tabela_monitoramento.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TabelaMonitoramentoView, self).get_context_data(**kwargs)
+        context['title'] = 'Tabela de Monitoramento'
+        context['list'] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        return context

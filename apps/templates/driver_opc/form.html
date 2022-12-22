@@ -1,0 +1,93 @@
+<div class="modal fade" id="pop_form" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-dark2">
+            <div class="modal-header no-bd">
+                <h2 class="modal-title">
+                    <span class="fw-mediumbold">
+                    Novo</span> 
+                    <span class="fw-light">
+                        Driver OPC
+                    </span>
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pb-0">
+                <!-- Tamanho Menor -->
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Nome do driver</label>
+                                <input id="nome" type="text" class="form-control" placeholder="Insira o nome do driver opc">
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>Endereço IP da estação server</label>
+                                <input id="endereco" type="text" class="form-control" placeholder="Insira o endereço IP">
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>OPC Server</label>
+                                <input id="opc" type="file" class="form-control" placeholder="Insira o OPC server">
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">Especificar servidor manualmente</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>CLSID</label>
+                                <input id="clsid" type="text" class="form-control" placeholder="Insira o CLSID">
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>Diretório de busca</label>
+                                <input id="diretorio" type="text" class="form-control" placeholder="Insira o diretório de busca">
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>Tempo de leitura (s)</label>
+                                <input id="tempo" type="number" class="form-control" placeholder="Insira o tempo de leitura">
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">Reiniciar aplicativo na ocorrência de erro</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group form-group-default">
+                                <label>Quantidade de erros para reiniciar</label>
+                                <input id="qtd_erros" type="text" class="form-control" placeholder="Insira a quantidade de erros">
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">Monitor travamento de valores</span>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">Habilitar driver</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer no-bd">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="criar" class="btn btn-success">Criar</button>
+            </div>
+        </div>
+    </div>
+</div>

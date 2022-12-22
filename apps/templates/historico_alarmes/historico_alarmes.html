@@ -1,0 +1,144 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} {{ title }} {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+	<style>
+		#datafinal{
+			opacity: 1 !important;
+			background-color: #272442 !important;
+			border: #272442;
+			font-size: 1em;
+		}
+	</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Usina São José da Estiva</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="{% url 'home' %}">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'historico_alarmes' %}">{{ title }}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">{{ title }}</h4>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Data Final</label>
+										<div class="input-group">
+											<input type="text" class="form-control text-center" id="datafinal" name="datafinal">
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="fa fa-calendar"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="registros">Registros</label>
+										<input type="text" class="form-control" id="registros" placeholder="Insira os registros">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="basic-datatables" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>Tagname</th>
+											<th>Descrição</th>
+											<th>Valor</th>
+											<th>Hora do Alarme</th>
+											<th>Status</th>
+											<th>Tipo</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for item in list %}
+											<tr>
+												<td>AA_LIT</td>
+												<td>Nível Alto da Caldeira</td>
+												<td>44,741</td>
+												<td>11/9/2022, 11:00:03 AM</td>
+												<td style="text-align: center; width: 10%;">
+													<button style="border: 0;" class="btn-icon btn-round btn-warning">
+														<i class="fas fa-arrow-up"></i>
+													</button>
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<i class="fas fa-sign-out-alt"></i>
+												</td>
+											</tr>
+											<tr>
+												<td>LL_LIT</td>
+												<td>Nível Baixo da Caldeira</td>
+												<td>22,741</td>
+												<td>11/9/2022, 11:00:03 AM</td>
+												<td style="text-align: center; width: 10%;">
+													<button style="border: 0;" class="btn-icon btn-round btn-warning">
+														<i class="fas fa-arrow-down"></i>
+													</button>
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<i class="fas fa-sign-in-alt"></i>
+												</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+				"pageLength": 5,
+			});
+		});
+	</script>
+	<script>
+		flatpickr("#datafinal", {
+			enableTime: true,
+			dateFormat: "d/m/Y - H:i",
+			defaultDate: "01/01/2000",
+			defaultHour: 00,
+			defaultMinute: 00,
+		});
+	</script>
+{% endblock javascripts %}

@@ -1,7 +1,6 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from . import models, forms
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -28,3 +27,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class GraficoTendenciasView(LoginRequiredMixin, TemplateView):
     template_name = 'grafico_tendencias/grafico_tendencias.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GraficoTendenciasView, self).get_context_data(**kwargs)
+        context['title'] = 'Gráfico de Tendências'
+        context['list'] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        return context

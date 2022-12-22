@@ -30,5 +30,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class MonitoramentoKPIsView(LoginRequiredMixin, TemplateView):
     template_name = 'monitoramento_kpis/monitoramento_kpis.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(MonitoramentoKPIsView, self).get_context_data(**kwargs)
+        context['title'] = "Monitoramento de KPI's"
+        context['list'] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        return context
+
 class VariaveisVirtuaisView(LoginRequiredMixin, TemplateView):
     template_name = 'monitoramento_kpis/variaveis_virtuais.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(VariaveisVirtuaisView, self).get_context_data(**kwargs)
+        context['title1'] = "Monitoramento de KPI's"
+        context['title2'] = "Variavéis Virtuais"
+        context['list'] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        return context

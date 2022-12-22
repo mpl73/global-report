@@ -1,0 +1,168 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} {{ title }} {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Usina São José da Estiva</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="{% url 'home' %}">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'alarmes' %}">{{ title }}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">{{ title }}</h4>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="basic-datatables" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>Tipo</th>
+											<th>Prioridade</th>
+											<th>Prefixo</th>
+											<th>Sufixo</th>
+											<th>Email</th>
+											<th>Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+											<tr>
+												<td>LO</td>
+												<td>1</td>
+												<td>Baixa Prioridade 1</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>LO</td>
+												<td>2</td>
+												<td>Baixa Prioridade 2</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>LO</td>
+												<td>3</td>
+												<td>Baixa Prioridade 3</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>HI</td>
+												<td>1</td>
+												<td>Alta Prioridade 1</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>HI</td>
+												<td>2</td>
+												<td>Alta Prioridade 2</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>hi</td>
+												<td>3</td>
+												<td>Alta Prioridade 3</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>DIG</td>
+												<td>0</td>
+												<td>Alarme Digital</td>
+												<td></td>
+												<td></td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+												</td>
+											</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+				"pageLength": 7,
+				"lengthChange": false,
+				"searching": false,
+				'paging': false,
+			});
+		});
+	</script>
+	<script>
+		flatpickr("#datafinal", {
+			enableTime: true,
+			dateFormat: "d/m/Y - H:i",
+			defaultDate: "01/01/2000",
+			defaultHour: 00,
+			defaultMinute: 00,
+		});
+	</script>
+{% endblock javascripts %}

@@ -16,6 +16,19 @@ urlpatterns = [
     path("", include("apps.home.urls")),
     path("tabela_monitoramento/", include("apps.tabela_monitoramento.urls")),
     path("grafico_tendencias/", include("apps.grafico_tendencias.urls")),
-    path("variaveis_estaticas/", include("apps.variaveis_estaticas.urls")),
+    path("historico_alarmes/", include("apps.historico_alarmes.urls")),
+    path("relatorios/", include("apps.relatorios.urls")),
+    path("dashboards/", include("apps.dashboards.urls")),
     path("monitoramento_kpis/", include("apps.monitoramento_kpis.urls")),
+    path("tarefas/", include("apps.tarefas.urls")),
+    path("variaveis_estaticas/", include("apps.variaveis_estaticas.urls")),
+
+    path("coletores/", include("apps.coletores.urls")),
+    path("unidades/", include("apps.unidades.urls")),
+    path("usuarios/", include("apps.usuarios.urls")),
+
+    path("driver_opc/", include("apps.driver_opc.urls")),
+    path("driver_siemens/", include("apps.driver_siemens.urls")),
+    path("variaveis_monitoradas/", include("apps.variaveis_monitoradas.urls")),
+    path("alarmes/", include("apps.alarmes.urls")),
 ]

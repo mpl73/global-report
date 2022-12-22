@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Variáveis Estáticas {% endblock %} 
+{% block title %}{{ title }}{% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,7 +21,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'variaveis_estaticas' %}">Variáveis Estáticas</a>
+						<a href="{% url 'variaveis_estaticas' %}">{{ title }}</a>
 					</li>
 				</ul>
 			</div>
@@ -30,101 +30,13 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Variáveis Estáticas</h4>
-								<button class="btn btn-icon btn-success btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+								<h4 class="card-title">{{ title }}</h4>
+								<button class="btn btn-icon btn-success btn-round ml-auto" data-toggle="modal" data-target="#pop_form">
 									<i class="fa fa-plus"></i>
 								</button>
 							</div>
 						</div>
 						<div class="card-body">
-							<!-- Modal -->
-							<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-								<div class="modal-dialog modal-lg" role="document">
-									<div class="modal-content bg-dark2">
-										<div class="modal-header no-bd">
-											<h2 class="modal-title">
-												<span class="fw-mediumbold">
-												Nova</span> 
-												<span class="fw-light">
-													Tag Analógica
-												</span>
-											</h2>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body">
-											<!-- Tamanho Menor -->
-											<form>
-												<div class="row">
-													<div class="col-md-12">
-														<div class="form-group form-group-default">
-															<label>Tagname</label>
-															<input id="tagname" type="text" class="form-control" placeholder="Insira a tag">
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="form-group form-group-default">
-															<label>Descrição</label>
-															<input id="descricao" type="text" class="form-control" placeholder="Insira a descrição">
-														</div>
-													</div>
-													<div class="col-md-6 pr-0">
-														<div class="form-group form-group-default">
-															<label>Mínimo</label>
-															<input id="minimo" type="number" class="form-control" placeholder="Insira o mínimo">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group form-group-default">
-															<label>Máximo</label>
-															<input id="maximo" type="number" class="form-control" placeholder="Insira o máximo">
-														</div>
-													</div>
-													<div class="col-md-6 pr-0">
-														<div class="form-group form-group-default">
-															<label>Valor de Projeto</label>
-															<input id="valor" type="number" class="form-control" placeholder="Insira o valor de projeto">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group form-group-default">
-															<label>Unidade Engenharia</label>
-															<select class="form-control" id="unidade">
-																<option>K</option>
-																<option>°C</option>
-																<option>°F</option>
-																<option>°R</option>
-																<option>rad</option>
-																<option>°</option>
-																<option>'</option>
-																<option>''</option>
-																<option>gon</option>
-															</select>
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="form-group form-group-default">
-															<label>Driver de Conexão</label>
-															<select class="form-control" id="driver">
-																<option>Manual</option>
-																<option>Driver 1</option>
-																<option>Driver 2</option>
-																<option>Driver 3</option>
-															</select>
-														</div>
-													</div>
-												</div>
-											</form>
-										</div>
-										<div class="modal-footer no-bd">
-											<button type="button" id="criar" class="btn btn-success">Criar</button>
-											<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-										</div>
-									</div>
-								</div>
-							</div>
-
 							<div class="table-responsive">
 								<table id="basic-datatables" class="display table table-striped table-hover" >
 									<thead>
@@ -138,81 +50,38 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>s</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-info">
-													<i class="fas fa-pen"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-danger">
-													<i class="fas fa-times"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_EDR6_D</td>
-											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
-											<td>96,7099</td>
-											<td>16/11/2022 -09:59</td>
-											<td>%</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-info">
-													<i class="fas fa-pen"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-danger">
-													<i class="fas fa-times"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>s</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-info">
-													<i class="fas fa-pen"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-danger">
-													<i class="fas fa-times"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_EDR6_D</td>
-											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
-											<td>96,7099</td>
-											<td>16/11/2022 -09:59</td>
-											<td>%</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-info">
-													<i class="fas fa-pen"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-danger">
-													<i class="fas fa-times"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>s</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-info">
-													<i class="fas fa-pen"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-danger">
-													<i class="fas fa-times"></i>
-												</button>
-											</td>
-										</tr>				
+										{% for item in list %}
+											<tr>
+												<td>SIG_SCT_D</td>
+												<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+												<td>29352,00</td>
+												<td>11/9/2022, 11:00:03 AM</td>
+												<td>s</td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+													<button type="button" class="btn btn-icon btn-round btn-danger">
+														<i class="fas fa-times"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>SIG_EDR6_D</td>
+												<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+												<td>96,7099</td>
+												<td>16/11/2022 -09:59</td>
+												<td>%</td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+													<button type="button" class="btn btn-icon btn-round btn-danger">
+														<i class="fas fa-times"></i>
+													</button>
+												</td>
+											</tr>
+										{% endfor %}
 									</tbody>
 								</table>
 							</div>
@@ -222,6 +91,8 @@
 			</div>
 		</div>
 	</div>
+
+	{% include 'variaveis_estaticas/form.html' %}
 
 {% endblock content %}
 

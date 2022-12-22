@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Gráfico de Tendências {% endblock %} 
+{% block title %}{{ title }}{% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}
@@ -44,6 +44,33 @@
 		.quick-actions-item.active span:hover{
 			color: #ffffff;
 		}
+		
+		.custom-table .dataTables_wrapper .row .col-sm-12 .dataTables_filter label input{
+			background-color: #4F4785;
+		}
+
+		.custom-table .dataTables_wrapper .row .col-sm-12 .dataTables_length label select{
+			background-color: #4F4785;
+		}
+
+		.custom-table .dataTables_wrapper .row .col-sm-12 .dataTables_paginate ul li.active a{
+			background-color: #4F4785;
+			border-color: #4F4785;
+		}
+		.search100 .dataTables_wrapper .row .col-sm-12 .dataTables_filter label input{ 
+			background-color: #4F4785;
+			width: 100vw;
+			display: inline-block;
+		}
+
+		.search100 .dataTables_wrapper .row .col-sm-12 .dataTables_paginate ul li.active a{
+			background-color: #4F4785;
+			border-color: #4F4785;
+		}
+
+		.visible{
+			opacity: 0;
+		}
 	</style>
 {% endblock stylesheets %}
 
@@ -63,7 +90,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'grafico_tendencias' %}">Gráfico de Tendências</a>
+						<a href="{% url 'grafico_tendencias' %}">{{ title }}</a>
 					</li>
 				</ul>
 			</div>
@@ -72,7 +99,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Gráfico de Tendências</h4>
+								<h4 class="card-title">{{ title }}</h4>
 								<nav class="navbar navbar-header navbar-expand-lg ml-auto" style="padding: 0; margin: 0; ">
 									<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 										<li class="nav-item dropdown hidden-caret">
@@ -87,67 +114,61 @@
 													<div class="quick-actions-items">
 														<div class="row m-0">
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-equalizer"></i>
 																	<span class="text">Régua</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-control-forward"></i>
 																	<span class="text">Mult. Eixos</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-target"></i>
 																	<span class="text">Pontos</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-fire"></i>
 																	<span class="text">Highlights</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-bubble"></i>
 																	<span class="text">Tooltips</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-4 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-cursor-move"></i>
 																	<span class="text">Interpolação</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-6 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-magnifier"></i>
 																	<span class="text">Zoom</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-6 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-refresh"></i>
 																	<span class="text">Refresh</span>
 																</div>
 															</a>
-															<a class="col-6 col-md-6 p-0" href="#" id="item">
+															<a class="col-6 col-md-12 p-0" href="#" id="item" data-toggle="modal" data-target="#pop_selecao_variavel">
 																<div class="quick-actions-item">
 																	<i class="icon-folder-alt"></i>
-																	<span class="text">Add Variáveis</span>
-																</div>
-															</a>
-															<a class="col-6 col-md-6 p-0" href="#" id="item">
-																<div class="quick-actions-item">
-																	<i class="icon-note"></i>
-																	<span class="text">Edit Variáveis</span>
+																	<span class="text">Variáveis</span>
 																</div>
 															</a>
 															<a class="col-6 col-md-12 p-0" href="#" id="item">
-																<div class="quick-actions-item">
+																<div class="quick-actions-item activable">
 																	<i class="icon-control-play"></i>
 																	<span class="text">Atualização Automática</span>
 																</div>
@@ -227,6 +248,7 @@
 		</div>
 	</div>
 	
+	{% include 'grafico_tendencias/selecao_variaveis.html' %}
 
 {% endblock content %}
 
@@ -236,12 +258,12 @@
 			if ($(this).hasClass('keep-open-on-click')) { e.stopPropagation(); }
 		});	
 
-		$(document).on('click', '.quick-actions-item', function(e) {
-			 if($(this).hasClass('active')){
+		$(document).on('click', '.activable', function(e) {
+			if($(this).hasClass('active')){
 				$(this).removeClass('active');
-			 } else{
+			} else{
 				$(this).addClass('active');
-			 }
+			}
 		});	
 	</script>
 	<script>
@@ -348,6 +370,15 @@
 					padding:{left:15,right:15,top:15,bottom:15}
 				}
 			}
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$('#selecao_variavel').DataTable({
+				"pageLength": 5,
+				"lengthChange": false,
+				// "searching": false,
+			});
 		});
 	</script>
 

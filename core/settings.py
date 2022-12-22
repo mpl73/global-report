@@ -27,8 +27,8 @@ DEBUG = env('DEBUG')
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets') 
 
 # load production server from .env
-ALLOWED_HOSTS        = ['localhost', 'localhost:85', '127.0.0.1', '192.168.0.52', '192.168.254.1',env('SERVER', default='127.0.0.1')]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'http://192.168.0.52', 'http://192.168.254.1','https://' + env('SERVER', default='127.0.0.1') ]
+ALLOWED_HOSTS        = ['localhost', 'localhost:85', '127.0.0.1', '192.168.1.102',env('SERVER', default='127.0.0.1')]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://192.168.1.102','https://' + env('SERVER', default='127.0.0.1') ]
 
 # Application definition
 
@@ -42,6 +42,22 @@ INSTALLED_APPS = [
     'tempus_dominus',
     'apps.home',
     'apps.tabela_monitoramento',
+    'apps.grafico_tendencias',
+    'apps.historico_alarmes',
+    'apps.relatorios',
+    'apps.dashboards',
+    'apps.monitoramento_kpis',
+    'apps.tarefas',
+    'apps.variaveis_estaticas',
+
+    'apps.coletores',
+    'apps.unidades',
+    'apps.usuarios',
+
+    'apps.driver_opc',
+    'apps.driver_siemens',
+    'apps.variaveis_monitoradas',
+    'apps.alarmes',
 ]
 
 MIDDLEWARE = [

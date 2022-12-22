@@ -45,6 +45,91 @@
 							</a>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
+							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fas fa-cog"></i>
+							</a>
+							<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+								<li>
+									<div class="notif-center">
+										<a href="{% url 'driver_opc' %}">
+											<i class="btn fas fa-link"></i>
+											<div class="notif-content">
+												Driver OPC
+											</div>
+										</a>
+										<a href="{% url 'driver_siemens' %}">
+											<i class="btn fas fa-link"></i>
+											<div class="notif-content">
+												Driver Siemens
+											</div>
+										</a>
+										<a href="{% url 'variaveis_monitoradas' %}">
+											<i class="btn fas fa-tag"></i>
+											<div class="notif-content">
+												Variáveis Monitoradas
+											</div>
+										</a>
+										<a href="{% url 'alarmes' %}">
+											<i class="btn fas fa-bell"></i>
+											<div class="notif-content">
+												Alarmes
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'coletores' %}">
+								<i class="fas fa-wrench"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'unidades' %}">
+								<i class="fas fa-map-marker-alt"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'usuarios' %}">
+								<i class="fas fa-user"></i>
+							</a>
+						</li>
+						<li class="nav-item dropdown hidden-caret">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+								<div class="avatar-sm">
+									<img src="/static/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+								</div>
+							</a>
+							<ul class="dropdown-menu dropdown-user animated fadeIn">
+								<div class="dropdown-user-scroll scrollbar-outer">
+									<li>
+										<div class="user-box">
+											<div class="avatar-lg"><img src="/static/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+											<div class="u-text">
+												<h4>
+													{{ request.user.username }}
+												</h4>
+												<p class="text-muted">
+													{{ request.user.email }}
+												</p>
+												<a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">My Profile</a>
+										<a class="dropdown-item" href="#">My Balance</a>
+										<a class="dropdown-item" href="#">Inbox</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Account Setting</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+									</li>
+								</div>
+							</ul>
+						</li>
+						<!-- <li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-envelope"></i>
 							</a>
@@ -224,42 +309,7 @@
 									</div>
 								</div>
 							</div>
-						</li>
-						<li class="nav-item dropdown hidden-caret">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-								<div class="avatar-sm">
-									<img src="/static/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
-								</div>
-							</a>
-							<ul class="dropdown-menu dropdown-user animated fadeIn">
-								<div class="dropdown-user-scroll scrollbar-outer">
-									<li>
-										<div class="user-box">
-											<div class="avatar-lg"><img src="/static/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
-											<div class="u-text">
-												<h4>
-													{{ request.user.username }}
-												</h4>
-												<p class="text-muted">
-													{{ request.user.email }}
-												</p>
-												<a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">My Profile</a>
-										<a class="dropdown-item" href="#">My Balance</a>
-										<a class="dropdown-item" href="#">Inbox</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Account Setting</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-									</li>
-								</div>
-							</ul>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				{% endif %}

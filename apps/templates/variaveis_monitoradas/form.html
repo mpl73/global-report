@@ -1,0 +1,409 @@
+<div class="modal fade" id="pop_form" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 1400;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-dark2">
+            <div class="modal-header no-bd">
+                <h2 class="modal-title">
+                    <span class="fw-mediumbold">
+                    Nova</span> 
+                    <span class="fw-light">
+                        Variável Analógica
+                    </span>
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div id="multi-step-form-container">
+                        <!-- Form Steps / Progress Bar -->
+                        <ul class="form-stepper form-stepper-horizontal text-center pl-0">
+                            <!-- Step 1 -->
+                            <li class="form-stepper-active text-center form-stepper-list ml-3" step="1">
+                                <a class="mx-2">
+                                    <span class="form-stepper-circle">
+                                        <span>1</span>
+                                    </span>
+                                    <!-- <div class="label"><strong>Geral</strong></div> -->
+                                </a>
+                            </li>
+
+                            <!-- Step 2 -->
+                            <li class="form-stepper-unfinished text-center form-stepper-list mr-3" step="2">
+                                <a class="mx-2">
+                                    <span class="form-stepper-circle text-muted">
+                                        <span>2</span>
+                                    </span>
+                                    <!-- <div class="label text-muted"><strong>Alarmes</strong></div> -->
+                                </a>
+                            </li>
+
+                            <!-- Step 3 -->
+                            <li class="form-stepper-unfinished text-center form-stepper-list mr-3" step="3">
+                                <a class="mx-2">
+                                    <span class="form-stepper-circle text-muted">
+                                        <span>3</span>
+                                    </span>
+                                    <!-- <div class="label text-muted"><strong>Comunicação OPC</strong></div> -->
+                                </a>
+                            </li>
+
+                            <!-- Step 4 -->
+                            <li class="form-stepper-unfinished text-center form-stepper-list mr-3" step="4">
+                                <a class="mx-2">
+                                    <span class="form-stepper-circle text-muted">
+                                        <span>4</span>
+                                    </span>
+                                    <!-- <div class="label text-muted"><strong>Email</strong></div> -->
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Step Wise Form Content -->
+                        <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+                            <section id="step-1" class="form-step">
+                                <!-- Step 1 input fields -->
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="fw-light mb-3">Configurações Gerais</h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Tagname</label>
+                                                <input id="tagname" type="text" class="form-control" placeholder="Insira a tag">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Descrição</label>
+                                                <input id="descricao" type="text" class="form-control" placeholder="Insira a descrição">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pr-0">
+                                            <div class="form-group form-group-default">
+                                                <label>Mínimo</label>
+                                                <input id="minimo" type="number" class="form-control" placeholder="Insira o mínimo">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Máximo</label>
+                                                <input id="maximo" type="number" class="form-control" placeholder="Insira o máximo">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Valor de projeto</label>
+                                                <input id="valor" type="number" class="form-control" placeholder="Insira o valor de projeto">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Unidade Engenharia</label>
+                                                <select class="form-control" id="unidade" style="width: 100%;">
+                                                    <option>K</option>
+                                                    <option>°C</option>
+                                                    <option>°F</option>
+                                                    <option>°R</option>
+                                                    <option>rad</option>
+                                                    <option>°</option>
+                                                    <option>'</option>
+                                                    <option>''</option>
+                                                    <option>gon</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">Publicar Variável Virtual</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                <button type="button" class="btn btn-success btn-navigate-form-step" step_number="2">Próximo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 2 Content, default hidden on page load. -->
+                            <section id="step-2" class="form-step d-none">
+                                <!-- Step 2 input fields -->
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="fw-light mb-3">Configurações de Alarme</h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme alto P1</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-success"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_alto_p1" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme alto P2</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-danger"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_alto_p2" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme alto P3</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-danger"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_alto_p3" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme baixo P1</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-success"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_baixo_p1" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme baixo P2</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-danger"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_baixo_p2" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Ajuste alarme baixo P3</label>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-danger"></button>
+                                                    </div>
+                                                    <div class="col-md-11 pl-0" style="transform: translateY(-15%);">
+                                                        <input id="alarme_baixo_p3" type="number" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Alarme Interno</label>
+                                                <select class="form-control" id="alarme_interno" style="width: 100%;">
+                                                    <option>Não</option>
+                                                    <option>Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Alarme Externo</label>
+                                                <select class="form-control" id="alarme_externo" style="width: 100%;">
+                                                    <option>Não</option>
+                                                    <option>Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-navigate-form-step" step_number="1">Voltar</button>
+                                                <button type="button" class="btn btn-success btn-navigate-form-step" step_number="3">Próximo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 3 Content, default hidden on page load. -->
+                            <section id="step-3" class="form-step d-none">
+                                <!-- Step 2 input fields -->
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="fw-light mb-3">Configurações de Comunicação OPC</h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Driver de conexão</label>
+                                                <select class="form-control" id="driver" style="width: 100%;">
+                                                    <option>Coletor 1</option>
+                                                    <option>Coletor 2</option>
+                                                    <option>Coletor 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">Especificar string de conexão manualmente</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>String de conexão</label>
+                                                <input id="string" type="file" class="form-control" placeholder="Insira a string de conexão">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Taxa de Aquisição</label>
+                                                <select class="form-control" id="driver" style="width: 100%;">
+                                                    <option>100ms</option>
+                                                    <option>200ms</option>
+                                                    <option>300ms</option>
+                                                    <option>400ms</option>
+                                                    <option>500ms</option>
+                                                    <option>1000ms</option>
+                                                    <option>2000ms</option>
+                                                    <option>5000ms</option>
+                                                    <option>10000ms</option>
+                                                    <option>30000ms</option>
+                                                    <option>60000ms</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Dead Brand</label>
+                                                <input id="string" type="text" class="form-control" placeholder="Insira a dead brand">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">Habilitar histórico</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-navigate-form-step" step_number="2">Voltar</button>
+                                                <button type="button" class="btn btn-success btn-navigate-form-step" step_number="4">Próximo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 4 Content, default hidden on page load. -->
+                            <section id="step-4" class="form-step d-none">
+                                <!-- Step 2 input fields -->
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="fw-light mb-3">Configurações de Email</h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Assunto</label>
+                                                <input id="assunto" type="text" class="form-control" placeholder="Insira o assunto">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Habilitar P1</label>
+                                                <select class="form-control" id="hab_p1" style="width: 100%;">
+                                                    <option>Não</option>
+                                                    <option>Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group form-group-default">
+                                                <label>Endereço P1</label>
+                                                <input id="endereco_p1" type="text" class="form-control" placeholder="Insira o endereço P1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Habilitar P2</label>
+                                                <select class="form-control" id="hab_p2" style="width: 100%;">
+                                                    <option>Não</option>
+                                                    <option>Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group form-group-default">
+                                                <label>Endereço P2</label>
+                                                <input id="endereco_p2" type="text" class="form-control" placeholder="Insira o endereço P2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Habilitar P3</label>
+                                                <select class="form-control" id="hab_p3" style="width: 100%;">
+                                                    <option>Não</option>
+                                                    <option>Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group form-group-default">
+                                                <label>Endereço P3</label>
+                                                <input id="endereco_p3" type="text" class="form-control" placeholder="Insira o endereço P3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-navigate-form-step" step_number="3">Voltar</button>
+                                                <button type="button" class="btn btn-success">Salvar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="modal fade" id="pop_form" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-dark2">
+            <div class="modal-header no-bd">
+                <h2 class="modal-title">
+                    <span class="fw-mediumbold">
+                    Nova</span> 
+                    <span class="fw-light">
+                        Tarefa
+                    </span>
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Tamanho Menor -->
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="fw-light mb-3">Configurações Gerais</h2>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Nome da tarefa</label>
+                                <input id="nome" type="text" class="form-control" placeholder="Insira o nome da tarefa">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 pr-0">
+                            <div class="form-group form-group-default">
+                                <label>Relatório</label>
+                                <select class="form-control" id="relatorio">
+                                    <option>Relatório de Cogeração</option>
+                                    <option>Relatório de Nível</option>
+                                    <option>Relatório de Refrigeração</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                                <label>Intervalo</label>
+                                <select class="form-control" id="intervalo">
+                                    <option>Minutos</option>
+                                    <option>Horas</option>
+                                    <option>Dia</option>
+                                    <option>Mês</option>
+                                    <option>Ano</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6 pr-0">
+                            <div class="form-group form-group-default">
+                                <label>Orientação</label>
+                                <select class="form-control" id="orientacao">
+                                    <option>Retrato</option>
+                                    <option>Paisagem</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                                <label>Data Inicial</label>
+                                <input type="text" class="form-control text-center" id="datainicial" name="datainicial">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 pr-0">
+                            <div class="form-group form-group-default">
+                                <label>Período</label>
+                                <input id="periodo" type="text" class="form-control" placeholder="Insira o periodo">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                                <label>Opção</label>
+                                <select class="form-control" id="opcao">
+                                    <option>Minutos</option>
+                                    <option>Horas</option>
+                                    <option>Dia</option>
+                                    <option>Mes</option>
+                                    <option>Ano</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h2 class="fw-light mb-3">Configurações da Tarefa</h2>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Repetição</label>
+                                <select class="form-control" id="repeticao">
+                                    <option>Nenhum</option>
+                                    <option>Por minuto</option>
+                                    <option>Por hora</option>
+                                    <option>Por dia</option>
+                                    <option>Por semana</option>
+                                    <option>Por mês</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer no-bd">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="criar" class="btn btn-success">Criar</button>
+            </div>
+        </div>
+    </div>
+</div>

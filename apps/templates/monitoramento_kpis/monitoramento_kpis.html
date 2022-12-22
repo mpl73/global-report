@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Monitoramento de KPI's {% endblock %} 
+{% block title %}{{ title }}{% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,7 +21,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'monitoramento_kpis' %}">Monitoramento de KPI's</a>
+						<a href="{% url 'monitoramento_kpis' %}">{{ title }}</a>
 					</li>
 				</ul>
 			</div>
@@ -30,7 +30,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Monitoramento de KPI's</h4>
+								<h4 class="card-title">{{ title }}</h4>
 								<a href="{% url 'variaveis_virtuais' %}" class="ml-auto">
 									<button class="btn btn-icon btn-success btn-round">
 										<i class="fa fa-plus"></i>
@@ -52,111 +52,58 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
+										{% for item in list %}
+											<tr>
+												<td>SIG_SCT_D</td>
+												<td>Açucar - Produção - Total dia - Sacos 50kg</td>
+												<td>29352,00</td>
+												<td>11/9/2022, 11:00:03 AM</td>
+												<td>
+													<div class="card card-success card-round" style="margin: 0;">
+														<div class="icon-big text-center">
+															Online
+														</div>
 													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_EDR6_D</td>
-											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
-											<td>96,7099</td>
-											<td>16/11/2022 -09:59</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<a href="{% url 'grafico_tendencias' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-chart-line"></i>
+														</button>
+													</a>
+													<a href="{% url 'historico_alarmes' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-bell"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+											<tr>
+												<td>SIG_EDR6_D</td>
+												<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
+												<td>96,7099</td>
+												<td>16/11/2022 -09:59</td>
+												<td>
+													<div class="card card-danger card-round" style="margin: 0;">
+														<div class="icon-big text-center">
+															Offline
+														</div>
 													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-danger card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Offline
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_EDR6_D</td>
-											<td>Extração Reduzida 6° Terno - Noel Dear - Total Dia</td>
-											<td>96,7099</td>
-											<td>16/11/2022 -09:59</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>SIG_SCT_D</td>
-											<td>Açucar - Produção - Total dia - Sacos 50kg</td>
-											<td>29352,00</td>
-											<td>11/9/2022, 11:00:03 AM</td>
-											<td>
-												<div class="card card-success card-round" style="margin: 0;">
-													<div class="icon-big text-center">
-														Online
-													</div>
-												</div>
-											</td>
-											<td style="text-align: center; width: 10%;">
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-chart-line"></i>
-												</button>
-												<button type="button" class="btn btn-icon btn-round btn-default">
-													<i class="fas fa-bell"></i>
-												</button>
-											</td>
-										</tr>								
+												</td>
+												<td style="text-align: center; width: 10%;">
+													<a href="{% url 'grafico_tendencias' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-chart-line"></i>
+														</button>
+													</a>
+													<a href="{% url 'historico_alarmes' %}">
+														<button type="button" class="btn btn-icon btn-round btn-default">
+															<i class="fas fa-bell"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+										{% endfor %}
 									</tbody>
 								</table>
 							</div>

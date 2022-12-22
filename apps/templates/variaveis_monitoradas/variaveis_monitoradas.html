@@ -1,0 +1,128 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} {{ title }} {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+	<link rel="stylesheet" href="/static/assets/css/stepwizard.css">
+
+	<style>
+		.li::after{
+			width: 10px;
+		}
+	</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Usina São José da Estiva</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="{% url 'home' %}">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'variaveis_monitoradas' %}">{{ title }}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">{{ title }}</h4>
+								<button class="btn btn-icon btn-success btn-round ml-auto" id="abrirModal" data-toggle="modal" data-target="#pop_form">
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="basic-datatables" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>Tagname</th>
+											<th>Descrição</th>
+											<th>Mínimo</th>
+											<th>Máximo</th>
+											<th>Unidade</th>
+											<th>Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for item in list %}
+											<tr>
+												<td>A013-LIT-101</td>
+												<td>Nível Tanque Pulmão Fábrica Açúcar</td>
+												<td>0</td>
+												<td>100</td>
+												<td>%</td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+													<button type="button" class="btn btn-icon btn-round btn-danger">
+														<i class="fas fa-times"></i>
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td>A030-LIT-101</td>
+												<td>Nível Cozedor 4 COZ1</td>
+												<td>0</td>
+												<td>100</td>
+												<td>%</td>
+												<td style="text-align: center; width: 10%;">
+													<button type="button" class="btn btn-icon btn-round btn-info">
+														<i class="fas fa-pen"></i>
+													</button>
+													<button type="button" class="btn btn-icon btn-round btn-danger">
+														<i class="fas fa-times"></i>
+													</button>
+												</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% include 'variaveis_monitoradas/form.html' %}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+				"pageLength": 5,
+			});
+		});
+	</script>
+	<script>
+		flatpickr("#datafinal", {
+			enableTime: true,
+			dateFormat: "d/m/Y - H:i",
+			defaultDate: "01/01/2000",
+			defaultHour: 00,
+			defaultMinute: 00,
+		});
+	</script>
+
+<script src="/static/assets/js/stepwizard.js"></script>
+{% endblock javascripts %}
